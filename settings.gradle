@@ -1,0 +1,3 @@
+include ':aimageview'
+
+project(':aimageview').projectDir = new File('library')

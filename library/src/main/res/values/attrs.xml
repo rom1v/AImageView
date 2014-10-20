@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="AImageView">
+        <!--
+            x weight (in [0;1]). A value of 0 (resp. 1) indicates that the image and the component
+            must be bound to their left (resp. right). Intermediate values are a linear
+            interpolation of these two cases. Typically, a value of 0.5 centers the crop or the
+            margins horizontally.
+        -->
+        <attr name="xWeight" format="float"/>
+
+        <!--
+            y weight (in [0;1]). A value of 0 (resp. 1) indicates that the image and the component
+            must be bound to their top (resp. bottom). Intermediate values are a linear
+            interpolation of these two cases. Typically, a value of 0.5 centers the crop or the
+            margins vertically.
+        -->
+        <attr name="yWeight" format="float"/>
+
+        <!--
+            Enable downscaling and/or upscaling.
+        -->
+        <attr name="scale">
+            <flag name="disabled" value="0"/>
+            <flag name="downscale" value="1"/>
+            <flag name="upscale" value="2"/>
+        </attr>
+
+        <!--
+            Fit the image inside (add margins to display the whole image content) or outside (crop
+            the image to fill the component).
+            Has no effect if scale is disabled.
+        -->
+        <attr name="fit">
+            <!-- Fit the image inside (add margins to display the whole image content). -->
+            <enum name="inside" value="0"/>
+            <!-- Fit the image outside (crop the image to fill the component). -->
+            <enum name="outside" value="1"/>
+        </attr>
+    </declare-styleable>
+</resources>
