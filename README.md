@@ -124,7 +124,7 @@ The library is built using [Gradle](https://en.wikipedia.org/wiki/Gradle).
 
 You can build the `aar` project library using:
 
-    ./gradlew assembleDebug
+    ./gradlew assembleRelease
 
 It will be generated to `library/build/outputs/aar/aimageview.aar`.
 
