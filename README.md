@@ -130,27 +130,23 @@ It will be generated to `library/build/outputs/aar/aimageview.aar`.
 
 You can use then use it in your projects.
 
-First, copy `aimageview.aar` to `libs/` of your app project.
+The easiest way is to import it using *Android Studio*: File → New module… →
+Import .JAR or .AAR Project.
 
-Then add a `flatDir` declaration in your repositories list of your root
-`build.gradle`:
+You can achieve the same result manually. First, put the `aar` into
+`/aimageview/aimageview.aar` (from your root project). Then, create
+`/aimageview/build.gradle`, containing:
 
 ~~~
-allprojects {
-    repositories {
-        mavenCentral()
-        flatDir {
-            dirs 'libs'
-        }
-    }
-}
+configurations.create("default")
+artifacts.add("default", file('aimageview.aar'))
 ~~~
 
 Finally, declare it in your app dependencies:
 
 ~~~
 dependencies {
-    compile(name: 'aimageview', ext: 'aar')
+    compile project(':aimageview')
 }
 ~~~
 
