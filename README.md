@@ -118,11 +118,46 @@ this component always preserve aspect ratio.
 `AImageView` is built upon it.
 
 
-### Build and sample
+### Build
 
 The library is built using [Gradle](https://en.wikipedia.org/wiki/Gradle).
 
-A sample application using it is available:
+You can build the `aar` project library using:
+
+    ./gradlew assembleDebug
+
+It will be generated to `library/build/outputs/aar/aimageview.aar`.
+
+You can use then use it in your projects.
+
+First, copy `aimageview.aar` to `libs/` of your app project.
+
+Then add a `flatDir` declaration in your repositories list of your root
+`build.gradle`:
+
+~~~
+allprojects {
+    repositories {
+        mavenCentral()
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+~~~
+
+Finally, declare it in your app dependencies:
+
+~~~
+dependencies {
+    compile(name: 'aimageview', ext: 'aar')
+}
+~~~
+
+
+### Sample application
+
+A sample application using it is (as a submodule) is also available:
 
     git clone --recursive http://git.rom1v.com/AImageViewSample.git
     cd AImageViewSample
