@@ -36,6 +36,10 @@
             <enum name="inside" value="0"/>
             <!-- Fit the image outside (crop the image to fill the component). -->
             <enum name="outside" value="1"/>
+            <!-- Fit the image horizontally -->
+            <enum name="horizontal" value="2" />
+            <!-- Fit the image vertically -->
+            <enum name="vertical" value="3" />
         </attr>
     </declare-styleable>
 </resources>

@@ -19,9 +19,10 @@ the right constant (if any) is not always intuitive.
 
  * `xWeight` and `yWeight` (`float`s in [0;1]) indicate where to bind the image
    to the component;
- * `scale` indicates whether `upscaling` and/or `downscaling` are acceptable;
- * `fit` indicates whether the image must fit `inside` (by adding margins) or
-   `outside` (by cropping) the component.
+ * `fit` indicates whether the image must fit `inside` the component (by adding
+   margins), `outside` the component (by cropping), always `horizontal`ly or
+   always `vertical`ly;
+ * `scale` indicates whether the image can be `upscale`d and/or `downscale`d.
 
 Currently, it always preserves [aspect
 ratio](https://en.wikipedia.org/wiki/Aspect_ratio_%28image%29).

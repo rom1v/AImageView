@@ -57,7 +57,13 @@ public class AImageView extends ImageView {
         INSIDE,
 
         /** Fit the image outside (crop the image to fill the component). */
-        OUTSIDE;
+        OUTSIDE,
+
+        /** Fit the image horizontally */
+        HORIZONTAL,
+
+        /** Fit the image vertically */
+        VERTICAL;
 
         /**
          * Convert the attr value to a typed {@link Fit} value.
@@ -72,6 +78,10 @@ public class AImageView extends ImageView {
                     return INSIDE;
                 case 1:
                     return OUTSIDE;
+                case 2:
+                    return HORIZONTAL;
+                case 3:
+                    return VERTICAL;
                 default:
                     throw new IllegalArgumentException();
             }
@@ -171,13 +181,13 @@ public class AImageView extends ImageView {
         } else {
             // the image has a greater aspect-ratio than the container ?
             boolean imageHasGreaterAR = imageWidth * h > imageHeight * w;
-            if (imageHasGreaterAR ^ (fit == Fit.OUTSIDE)) {
-                // imageHasGreaterAR && fit == Fit.INSIDE || !imageHasGraterAR && fit == Fit.OUTSIDE
-
+            if (fit == Fit.HORIZONTAL || imageHasGreaterAR && fit == Fit.INSIDE ||
+                    !imageHasGreaterAR && fit == Fit.OUTSIDE) {
                 // fit the width
                 scale = (float) w / imageWidth;
             } else {
-                // !imageHasGreaterAR && fit == Fit.INSIDE || imageHasGraterAR && fit == Fit.OUTSIDE
+                // fit == Fit.VERTICAL || !imageHasGreaterAR && fit == Fit.INSIDE ||
+                // imageHasGraterAR && fit == Fit.OUTSIDE
 
                 // fit the height
                 scale = (float) h / imageHeight;
