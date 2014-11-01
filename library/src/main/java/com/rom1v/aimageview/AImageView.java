@@ -177,6 +177,10 @@ public class AImageView extends ImageView {
                     DOWNSCALE) == 0) {
                 // respect scaling constraints
                 scale = 1;
+            } else if (scale < 0) {
+                // may happen when w or h is negative, i.e. when the padding is greater than
+                // the component; in that case, we do not want to reverse the image
+                scale = 0;
             }
         }
 
