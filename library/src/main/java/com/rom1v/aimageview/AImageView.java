@@ -152,7 +152,7 @@ public class AImageView extends ImageView {
     }
 
     static Matrix getTransformMatrix(int w, int h, int imageWidth, int imageHeight, float xWeight,
-                                    float yWeight, Fit fit, int scaleFlags) {
+                                     float yWeight, Fit fit, int scaleFlags) {
         Matrix matrix = new Matrix();
 
         float scale;
